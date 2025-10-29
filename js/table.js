@@ -203,8 +203,12 @@ window.TableManager = {
                 const formattedValue = this.formatCellValue(value, config);
                 const widthClass = this.getWidthClass(config.width);
                 
+                // 只有当内容可能被截断时才添加title属性
+                const titleAttr = this.shouldShowTooltip(value, formattedValue) ?
+                    `title="${this.escapeHtml(value)}"` : '';
+                
                 bodyHTML += `
-                    <td class="table-cell ${widthClass}" title="${this.escapeHtml(value)}">
+                    <td class="table-cell ${widthClass}" ${titleAttr}>
                         ${formattedValue}
                     </td>
                 `;
@@ -541,7 +545,8 @@ window.TableManager = {
         
         for (const group of Object.values(AppConfig.columns)) {
             for (const [key, config] of Object.entries(group.fields)) {
-                if (config.filterable && this.columnSettings[key]?.visible) {
+                // 筛选条件不受列设置的visible影响，只看配置中的filterable属性
+                if (config.filterable) {
                     filterableColumns.push(key);
                 }
             }
@@ -587,6 +592,20 @@ window.TableManager = {
             default:
                 return AppUtils.formatText(value, 30);
         }
+    },
+    
+    // 判断是否需要显示tooltip
+    shouldShowTooltip: function(originalValue, formattedValue) {
+        if (!originalValue) return false;
+        
+        // 如果原始值很短（少于20个字符），不显示tooltip
+        if (String(originalValue).length <= 20) return false;
+        
+        // 如果格式化后的值包含HTML标签（如状态标签），不显示tooltip
+        if (formattedValue.includes('<span') || formattedValue.includes('<i')) return false;
+        
+        // 如果原始值和格式化值不同（被截断），显示tooltip
+        return String(originalValue) !== formattedValue.replace(/<[^>]*>/g, '');
     },
     
     // HTML转义

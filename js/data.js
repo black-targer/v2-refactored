@@ -7,98 +7,98 @@ window.DataManager = {
             { 
                 stationId: 'S001', 
                 stationName: '城东加油站', 
-                region: '东城区，北京市', 
+                region: '北京市，东城区', 
                 address: '东城区东方路123号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-01-15' 
+                registerTime: '2024-03-15' 
             },
             { 
                 stationId: 'S002', 
                 stationName: '城西加油站', 
-                region: '西城区，北京市', 
+                region: '北京市，西城区', 
                 address: '西城区西湖路45号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-02-20' 
+                registerTime: '2024-02-20' 
             },
             { 
                 stationId: 'S003', 
                 stationName: '城南加油站', 
-                region: '朝阳区，北京市', 
+                region: '北京市，北京市，朝阳区', 
                 address: '朝阳区南湖路67号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-03-10' 
+                registerTime: '2024-03-10' 
             },
             { 
                 stationId: 'S004', 
                 stationName: '城北加油站', 
-                region: '海淀区，北京市', 
+                region: '海淀区', 
                 address: '海淀区北京路89号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-04-05' 
+                registerTime: '2024-04-05' 
             },
             { 
                 stationId: 'S005', 
                 stationName: '中心加油站', 
-                region: '东城区，北京市', 
+                region: '北京市，北京市，东城区', 
                 address: '东城区中心大道10号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-05-18' 
+                registerTime: '2024-05-18' 
             },
             { 
                 stationId: 'S006', 
                 stationName: '高新区加油站', 
-                region: '海淀区，北京市', 
+                region: '海淀区北京市，', 
                 address: '海淀区科技路22号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-06-30' 
+                registerTime: '2024-06-30' 
             },
             { 
                 stationId: 'S007', 
                 stationName: '工业园区加油站', 
-                region: '大兴区，北京市', 
+                region: '大兴区北京市，', 
                 address: '大兴区工业路33号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-07-12' 
+                registerTime: '2024-07-12' 
             },
             { 
                 stationId: 'S008', 
                 stationName: '滨海加油站', 
-                region: '通州区，北京市', 
+                region: '通州区北京市，', 
                 address: '通州区海景路44号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-08-15' 
+                registerTime: '2025-08-15' 
             },
             { 
                 stationId: 'S009', 
                 stationName: '山区加油站', 
-                region: '房山区，北京市', 
+                region: '房山区北京市，', 
                 address: '房山区山路55号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-09-20' 
+                registerTime: '2025-09-20' 
             },
             { 
                 stationId: 'S010', 
                 stationName: '河区加油站', 
-                region: '顺义区，北京市', 
+                region: '顺义区北京市，', 
                 address: '顺义区河路66号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-10-01' 
+                registerTime: '2025-10-01' 
             },
             { 
                 stationId: 'S011', 
                 stationName: '湖区别墅区加油站', 
-                region: '昌平区，北京市', 
+                region: '昌平区北京市，', 
                 address: '昌平区湖光路77号', 
                 company: '中石化北京分公司',
-                registerTime: '2023-11-11' 
+                registerTime: '2025-11-11' 
             },
             { 
                 stationId: 'S012', 
                 stationName: '森林公园加油站', 
-                region: '密云区，北京市', 
+                region: '密云区', 
                 address: '密云区公园路88号', 
                 company: '中石油北京分公司',
-                registerTime: '2023-12-25' 
+                registerTime: '2025-12-25' 
             }
         ],
         
@@ -110,7 +110,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'V', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-01-20', 
+                installDate: '2024-01-20', 
                 installStation: 'S001',
                 installPerson: '张工程师',
                 warrantyDate: '2026-01-19' 
@@ -121,7 +121,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'V', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-01-20', 
+                installDate: '2024-01-20', 
                 installStation: 'S001',
                 installPerson: '李工程师',
                 warrantyDate: '2026-01-19' 
@@ -132,7 +132,7 @@ window.DataManager = {
                 productTypeDesc: '储油罐', 
                 productLine: 'G', 
                 installSupplier: '天津石化设备公司',
-                installDate: '2023-01-18', 
+                installDate: '2024-01-18', 
                 installStation: 'S001',
                 installPerson: '王工程师',
                 warrantyDate: '2028-01-17' 
@@ -143,7 +143,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'V', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-02-25', 
+                installDate: '2024-02-25', 
                 installStation: 'S002',
                 installPerson: '赵工程师',
                 warrantyDate: '2026-02-24' 
@@ -154,7 +154,7 @@ window.DataManager = {
                 productTypeDesc: '监控系统', 
                 productLine: 'G', 
                 installSupplier: '上海智能科技公司',
-                installDate: '2023-02-26', 
+                installDate: '2024-02-26', 
                 installStation: 'S002',
                 installPerson: '孙工程师',
                 warrantyDate: '2025-02-25' 
@@ -165,7 +165,7 @@ window.DataManager = {
                 productTypeDesc: '支付终端', 
                 productLine: 'V', 
                 installSupplier: '深圳支付设备公司',
-                installDate: '2023-03-15', 
+                installDate: '2024-03-15', 
                 installStation: 'S003',
                 installPerson: '周工程师',
                 warrantyDate: '2025-03-14' 
@@ -176,7 +176,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'G', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-03-16', 
+                installDate: '2024-03-16', 
                 installStation: 'S003',
                 installPerson: '吴工程师',
                 warrantyDate: '2026-03-15' 
@@ -187,7 +187,7 @@ window.DataManager = {
                 productTypeDesc: '消防设备', 
                 productLine: 'V', 
                 installSupplier: '北京消防设备公司',
-                installDate: '2023-04-10', 
+                installDate: '2024-04-10', 
                 installStation: 'S004',
                 installPerson: '郑工程师',
                 warrantyDate: '2027-04-09' 
@@ -198,7 +198,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'V', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-04-08', 
+                installDate: '2024-04-08', 
                 installStation: 'S004',
                 installPerson: '钱工程师',
                 warrantyDate: '2026-04-07' 
@@ -209,7 +209,7 @@ window.DataManager = {
                 productTypeDesc: '储油罐', 
                 productLine: 'G', 
                 installSupplier: '天津石化设备公司',
-                installDate: '2023-05-22', 
+                installDate: '2024-05-22', 
                 installStation: 'S005',
                 installPerson: '冯工程师',
                 warrantyDate: '2028-05-21' 
@@ -220,7 +220,7 @@ window.DataManager = {
                 productTypeDesc: '照明系统', 
                 productLine: 'V', 
                 installSupplier: '北京照明设备公司',
-                installDate: '2023-05-23', 
+                installDate: '2024-05-23', 
                 installStation: 'S005',
                 installPerson: '陈工程师',
                 warrantyDate: '2025-05-22' 
@@ -231,7 +231,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'G', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-07-05', 
+                installDate: '2024-07-05', 
                 installStation: 'S006',
                 installPerson: '褚工程师',
                 warrantyDate: '2026-07-04' 
@@ -242,7 +242,7 @@ window.DataManager = {
                 productTypeDesc: '监控系统', 
                 productLine: 'V', 
                 installSupplier: '上海智能科技公司',
-                installDate: '2023-07-18', 
+                installDate: '2024-07-18', 
                 installStation: 'S007',
                 installPerson: '卫工程师',
                 warrantyDate: '2025-07-17' 
@@ -253,7 +253,7 @@ window.DataManager = {
                 productTypeDesc: '支付终端', 
                 productLine: 'G', 
                 installSupplier: '深圳支付设备公司',
-                installDate: '2023-08-20', 
+                installDate: '2025-08-20', 
                 installStation: 'S008',
                 installPerson: '蒋工程师',
                 warrantyDate: '2025-08-19' 
@@ -264,7 +264,7 @@ window.DataManager = {
                 productTypeDesc: '消防设备', 
                 productLine: 'V', 
                 installSupplier: '北京消防设备公司',
-                installDate: '2023-09-25', 
+                installDate: '2025-09-25', 
                 installStation: 'S009',
                 installPerson: '沈工程师',
                 warrantyDate: '2027-09-24' 
@@ -275,7 +275,7 @@ window.DataManager = {
                 productTypeDesc: '照明系统', 
                 productLine: 'G', 
                 installSupplier: '北京照明设备公司',
-                installDate: '2023-10-05', 
+                installDate: '2025-10-05', 
                 installStation: 'S010',
                 installPerson: '韩工程师',
                 warrantyDate: '2025-10-04' 
@@ -286,7 +286,7 @@ window.DataManager = {
                 productTypeDesc: '加油机', 
                 productLine: 'V', 
                 installSupplier: '北京设备安装公司',
-                installDate: '2023-11-15', 
+                installDate: '2025-11-15', 
                 installStation: 'S011',
                 installPerson: '杨工程师',
                 warrantyDate: '2026-11-14' 
@@ -298,85 +298,85 @@ window.DataManager = {
             { 
                 repairOrderNo: 'R001', 
                 repairProductSerial: 'P001', 
-                applyRepairTime: '2023-06-10 09:30:00', 
+                applyRepairTime: '2024-06-10 09:30:00', 
                 repairStation: 'S001', 
                 repairServiceProvider: '北京维修服务公司',
                 faultCategory: '机械故障', 
                 faultDescription: '加油枪无法正常工作，需要更换密封件',
                 repairProgress: '已完成',
-                isReplacement: true,
-                brokenPartReceiveTime: '2023-06-12 14:20:00'
+                isReplacement: '是',
+                brokenPartReceiveTime: '2024-06-12 14:20:00'
             },
             { 
                 repairOrderNo: 'R002', 
                 repairProductSerial: 'P004', 
-                applyRepairTime: '2023-07-15 14:15:00', 
+                applyRepairTime: '2024-07-15 14:15:00', 
                 repairStation: 'S002', 
                 repairServiceProvider: '天津设备维修中心',
                 faultCategory: '电气故障', 
                 faultDescription: '显示屏无法显示，电路板故障',
                 repairProgress: '已完成',
-                isReplacement: true,
-                brokenPartReceiveTime: '2023-07-17 10:30:00'
+                isReplacement: '是',
+                brokenPartReceiveTime: '2024-07-17 10:30:00'
             },
             { 
                 repairOrderNo: 'R003', 
                 repairProductSerial: 'P005', 
-                applyRepairTime: '2023-08-05 10:45:00', 
+                applyRepairTime: '2025-08-05 10:45:00', 
                 repairStation: 'S002', 
                 repairServiceProvider: '上海智能维修公司',
                 faultCategory: '软件故障', 
                 faultDescription: '监控系统软件崩溃，需要重新安装',
                 repairProgress: '已完成',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
                 repairOrderNo: 'R004', 
                 repairProductSerial: 'P006', 
-                applyRepairTime: '2023-09-20 16:20:00', 
+                applyRepairTime: '2025-09-20 16:20:00', 
                 repairStation: 'S003', 
                 repairServiceProvider: '深圳支付维修服务',
                 faultCategory: '软件故障', 
                 faultDescription: '支付终端无法连接网络，通信模块故障',
                 repairProgress: '已完成',
-                isReplacement: true,
-                brokenPartReceiveTime: '2023-09-22 11:15:00'
+                isReplacement: '是',
+                brokenPartReceiveTime: '2025-09-22 11:15:00'
             },
             { 
                 repairOrderNo: 'R005', 
                 repairProductSerial: 'P008', 
-                applyRepairTime: '2023-10-10 08:30:00', 
+                applyRepairTime: '2025-10-10 08:30:00', 
                 repairStation: 'S004', 
                 repairServiceProvider: '北京消防维修公司',
                 faultCategory: '机械故障', 
                 faultDescription: '灭火器压力不足，需要更换',
                 repairProgress: '已完成',
-                isReplacement: true,
-                brokenPartReceiveTime: '2023-10-12 13:45:00'
+                isReplacement: '是',
+                brokenPartReceiveTime: '2025-10-12 13:45:00'
             },
             { 
                 repairOrderNo: 'R006', 
                 repairProductSerial: 'P010', 
-                applyRepairTime: '2023-11-05 11:20:00', 
+                applyRepairTime: '2025-11-05 11:20:00', 
                 repairStation: 'S005', 
                 repairServiceProvider: '天津石化维修中心',
                 faultCategory: '人为损坏', 
                 faultDescription: '储油罐外壳被撞击损坏，需要修复',
                 repairProgress: '已完成',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
                 repairOrderNo: 'R007', 
                 repairProductSerial: 'P012', 
-                applyRepairTime: '2023-12-15 13:10:00', 
+                applyRepairTime: '2025-12-15 13:10:00', 
                 repairStation: 'S006', 
                 repairServiceProvider: '北京维修服务公司',
                 faultCategory: '机械故障', 
                 faultDescription: '加油机流量计不准确，需要校准',
                 repairProgress: '已完成',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
@@ -388,7 +388,7 @@ window.DataManager = {
                 faultCategory: '电气故障', 
                 faultDescription: '监控摄像头无法录像，存储设备故障',
                 repairProgress: '已完成',
-                isReplacement: true,
+                isReplacement: '是',
                 brokenPartReceiveTime: '2024-01-22 15:30:00'
             },
             { 
@@ -400,7 +400,7 @@ window.DataManager = {
                 faultCategory: '机械故障', 
                 faultDescription: '消防泵无法启动，电机故障',
                 repairProgress: '已完成',
-                isReplacement: true,
+                isReplacement: '是',
                 brokenPartReceiveTime: '2024-02-12 10:20:00'
             },
             { 
@@ -412,7 +412,7 @@ window.DataManager = {
                 faultCategory: '电气故障', 
                 faultDescription: '加油机电路板老化，需要更换',
                 repairProgress: '维修中',
-                isReplacement: true,
+                isReplacement: '是',
                 brokenPartReceiveTime: null
             },
             { 
@@ -424,7 +424,7 @@ window.DataManager = {
                 faultCategory: '机械故障', 
                 faultDescription: '加油软管破损，需要更换',
                 repairProgress: '维修中',
-                isReplacement: true,
+                isReplacement: '是',
                 brokenPartReceiveTime: null
             },
             { 
@@ -436,7 +436,7 @@ window.DataManager = {
                 faultCategory: '软件故障', 
                 faultDescription: '加油机系统频繁重启，软件不稳定',
                 repairProgress: '待处理',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
@@ -448,7 +448,7 @@ window.DataManager = {
                 faultCategory: '电气故障', 
                 faultDescription: '照明系统部分灯具不亮，线路故障',
                 repairProgress: '待处理',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
@@ -460,7 +460,7 @@ window.DataManager = {
                 faultCategory: '软件故障', 
                 faultDescription: '支付终端无法处理银行卡支付',
                 repairProgress: '待处理',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             },
             { 
@@ -472,7 +472,7 @@ window.DataManager = {
                 faultCategory: '自然灾害', 
                 faultDescription: '照明设备被雷击损坏',
                 repairProgress: '已取消',
-                isReplacement: false,
+                isReplacement: '否',
                 brokenPartReceiveTime: null
             }
         ]

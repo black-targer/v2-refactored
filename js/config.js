@@ -51,7 +51,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 address: {
@@ -61,7 +61,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'wide',
-                    visible: true,
+                    visible: false,
                     required: false
                 },
                 company: {
@@ -81,7 +81,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: false
                 }
             }
@@ -108,7 +108,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 productTypeDesc: {
@@ -152,7 +152,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 installStation: {
@@ -162,7 +162,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: false,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 installPerson: {
@@ -182,7 +182,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: false,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 }
             }
@@ -219,7 +219,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 repairProductSerial: {
@@ -229,7 +229,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 repairServiceProvider: {
@@ -256,7 +256,7 @@ window.AppConfig = {
                     sortable: true,
                     filterable: true,
                     width: 'normal',
-                    visible: true,
+                    visible: false,
                     required: true
                 },
                 faultDescription: {
@@ -290,8 +290,8 @@ window.AppConfig = {
                     label: '是否换件',
                     type: 'select',
                     options: [
-                        { value: true, label: '是' },
-                        { value: false, label: '否' }
+                        { value: '是', label: '是' },
+                        { value: '否', label: '否' }
                     ],
                     sortable: true,
                     filterable: true,

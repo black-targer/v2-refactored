@@ -173,14 +173,12 @@ window.ModalManager = {
             
             // 收集该分组的可编辑字段
             for (const [fieldKey, config] of Object.entries(group.fields)) {
-                // 显示所有可见字段，无论是新增还是编辑
-                if (config.visible !== false) {
-                    groupFields.push({
-                        key: fieldKey,
-                        config: config,
-                        value: item ? (item[fieldKey] || '') : ''
-                    });
-                }
+                // 新增和编辑模态框显示所有字段，不受visible配置限制
+                groupFields.push({
+                    key: fieldKey,
+                    config: config,
+                    value: item ? (item[fieldKey] || '') : ''
+                });
             }
             
             if (groupFields.length > 0) {
