@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>油站产品维修管理系统 V2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8 transform transition-all duration-300 scale-100">
+            <div class="text-center mb-6">
+                <i class="fas fa-industry text-blue-600 text-4xl mb-4"></i>
+                <h2 class="text-2xl font-bold text-gray-900 whitespace-nowrap">油站产品维修管理系统</h2>
+                <p class="text-gray-500 mt-2">请登录系统</p>
+            </div>
+            
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-gray-400"></i>
+                        </div>
+                        <input type="text" id="username" name="username" required
+                            class="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="输入用户名">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" id="password" name="password" required
+                            class="w-full pl-10 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="输入密码">
+                    </div>
+                </div>
+                
+                <div class="text-red-500 text-sm hidden" id="loginError">
+                    用户名或密码错误，请重试
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                    登录
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center text-sm text-gray-500">
+                <p>可用账号：</p>
+                <p>管理员: admin / 123456 (所有权限)</p>
+                <p>访客: guest / 123456 (仅查看权限)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 顶部导航 -->
+    <nav class="bg-white shadow-sm border-b hidden" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-industry text-blue-600 text-2xl mr-3"></i>
+                    <h1 class="text-xl font-semibold text-gray-900 whitespace-nowrap">油站产品维修管理系统</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <span id="currentUser" class="text-sm text-gray-700 mr-3 whitespace-nowrap"></span>
+                        <button id="logoutBtn" class="text-sm text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                            <i class="fas fa-sign-out-alt"></i> 退出
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden" id="mainContent">
+        <!-- 数据概览 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-sm p-6 border transform transition-all hover:shadow-md">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-gas-pump text-blue-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500">油站总数</p>
+                        <p class="text-2xl font-semibold text-gray-900" id="stationsCount">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6 border transform transition-all hover:shadow-md">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-cogs text-green-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500">产品总数</p>
+                        <p class="text-2xl font-semibold text-gray-900" id="productsCount">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm p-6 border transform transition-all hover:shadow-md">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-wrench text-red-600 text-2xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-500">维修订单</p>
+                        <p class="text-2xl font-semibold text-gray-900" id="repairsCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮区域 -->
+        <div class="flex justify-between mb-6">
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900">汇总信息</h2>
+            </div>
+            <div class="flex space-x-3">
+                <label for="excelImport" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 cursor-pointer inline-flex items-center admin-only transition-colors">
+                    <i class="fas fa-file-excel mr-2"></i>导入Excel
+                    <input type="file" id="excelImport" accept=".xlsx,.xls" class="hidden">
+                </label>
+                <button id="excelExport" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 inline-flex items-center transition-colors">
+                    <i class="fas fa-download mr-2"></i>导出Excel
+                </button>
+                <button id="addItemBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 inline-flex items-center admin-only transition-colors">
+                    <i class="fas fa-plus mr-2"></i>新增
+                </button>
+                <button id="columnSettingsBtn" class="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 inline-flex items-center transition-colors">
+                    <i class="fas fa-columns mr-2"></i>列设置
+                </button>
+            </div>
+        </div>
+
+        <!-- 筛选区域 -->
+        <div id="filterArea" class="bg-white rounded-lg shadow-sm p-6 border mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-medium text-gray-900">筛选条件</h3>
+                <div class="flex space-x-2">
+                    <button id="searchBtn" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                        <i class="fas fa-search mr-2"></i>搜索
+                    </button>
+                    <button id="resetBtn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
+                        <i class="fas fa-redo mr-2"></i>重置
+                    </button>
+                </div>
+            </div>
+            <div id="filterContent" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- 筛选条件将动态生成 -->
+            </div>
+        </div>
+
+        <!-- 数据表格区域 -->
+        <div class="bg-white rounded-lg shadow-sm border">
+            <div class="overflow-x-auto">
+                <table id="dataTable" class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50" id="tableHeader">
+                        <!-- 表头将动态生成 -->
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="tableBody">
+                        <!-- 表格内容将动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="px-6 py-3 bg-gray-50 border-t flex justify-between items-center">
+                <div class="text-sm text-gray-700">
+                    显示 <span id="displayCount">0</span> 条，共 <span id="totalCount">0</span> 条
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-700">第 <span id="currentPage">1</span> 页 / 共 <span id="totalPages">1</span> 页</span>
+                    <button id="prevBtn" class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="nextBtn" class="px-3 py-1 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 详情模态框 -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 id="modalTitle" class="text-xl font-semibold text-gray-900">详情信息</h2>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-500 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6">
+                <!-- 详情内容将在这里动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增/编辑模态框 -->
+    <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 id="editModalTitle" class="text-xl font-semibold text-gray-900">编辑信息</h2>
+                <button id="closeEditModalBtn" class="text-gray-400 hover:text-gray-500 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="editModalContent" class="p-6">
+                <!-- 编辑表单将在这里动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 列设置模态框 -->
+    <div id="columnModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-900">自定义列显示</h2>
+                <button id="closeColumnModalBtn" class="text-gray-400 hover:text-gray-500 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div id="columnModalContent" class="p-6">
+                <!-- 列设置内容将在这里动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载脚本 -->
+    <script src="js/config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
