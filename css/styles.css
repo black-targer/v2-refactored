@@ -49,6 +49,55 @@
     white-space: normal;
 }
 
+/* 表格头部分组颜色样式 */
+.table-header-group {
+    transition: background-color 0.2s ease;
+}
+
+.table-header-group:hover {
+    opacity: 0.8;
+}
+
+/* 分组颜色增强 */
+.bg-blue-50 {
+    background-color: #eff6ff !important;
+}
+
+.border-blue-200 {
+    border-color: #bfdbfe !important;
+}
+
+.bg-green-50 {
+    background-color: #f0fdf4 !important;
+}
+
+.border-green-200 {
+    border-color: #bbf7d0 !important;
+}
+
+.bg-orange-50 {
+    background-color: #fff7ed !important;
+}
+
+.border-orange-200 {
+    border-color: #fed7aa !important;
+}
+
+/* 表格头部样式优化 */
+th[data-column] {
+    position: relative;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th[data-column]:first-child {
+    border-left: none;
+}
+
+th[data-column]:last-child {
+    border-right: none;
+}
+
 /* 可排序表头样式 */
 .sortable-header {
     cursor: pointer;

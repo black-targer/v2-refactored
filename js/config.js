@@ -23,6 +23,7 @@ window.AppConfig = {
         // 油站信息分组
         station: {
             groupName: '油站信息',
+            groupColor: 'bg-blue-50 border-blue-200',
             fields: {
                 stationId: {
                     key: 'stationId',
@@ -90,6 +91,7 @@ window.AppConfig = {
         // 产品信息分组
         product: {
             groupName: '产品信息',
+            groupColor: 'bg-green-50 border-green-200',
             fields: {
                 productSerial: {
                     key: 'productSerial',
@@ -191,6 +193,7 @@ window.AppConfig = {
         // 维修信息分组
         repair: {
             groupName: '维修情况',
+            groupColor: 'bg-orange-50 border-orange-200',
             fields: {
                 repairOrderNo: {
                     key: 'repairOrderNo',

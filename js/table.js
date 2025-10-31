@@ -141,11 +141,14 @@ window.TableManager = {
             if (config) {
                 const sortClass = this.getSortClass(columnKey);
                 const sortable = config.sortable ? 'sortable-header' : '';
+                const groupInfo = this.getColumnGroup(columnKey);
+                const groupColorClass = groupInfo ? groupInfo.color : 'bg-gray-50 border-gray-200';
                 
                 headerHTML += `
-                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ${sortable} ${sortClass}"
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider ${sortable} ${sortClass} ${groupColorClass} border-b-2"
                         ${config.sortable ? `onclick="TableManager.handleSort('${columnKey}')"` : ''}
-                        data-column="${columnKey}">
+                        data-column="${columnKey}"
+                        title="${groupInfo ? groupInfo.name : ''}">
                         ${config.label}
                     </th>
                 `;
@@ -606,6 +609,20 @@ window.TableManager = {
         
         // 如果原始值和格式化值不同（被截断），显示tooltip
         return String(originalValue) !== formattedValue.replace(/<[^>]*>/g, '');
+    },
+    
+    // 获取列所属的分组信息
+    getColumnGroup: function(columnKey) {
+        for (const [groupKey, group] of Object.entries(AppConfig.columns)) {
+            if (group.fields && group.fields[columnKey]) {
+                return {
+                    key: groupKey,
+                    name: group.groupName,
+                    color: group.groupColor || 'bg-gray-50 border-gray-200'
+                };
+            }
+        }
+        return null;
     },
     
     // HTML转义
